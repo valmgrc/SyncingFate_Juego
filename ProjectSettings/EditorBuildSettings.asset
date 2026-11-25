@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/InicioInicio.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/NarrativaFinal.unity
+    guid: bf354987f38d80d45b2c3d30a143ea33
+  - enabled: 1
+    path: Assets/Scenes/CreacionPersonaje1.unity
+    guid: b011a89411455594cae5c173fb7944b0
+  - enabled: 1
+    path: Assets/Scenes/CreacionPersonaje2.unity
+    guid: a0b72b863ece82d419c57bb5c75ade1b
+  - enabled: 1
+    path: Assets/Scenes/PersonalizarNombre.unity
+    guid: cb184d1c4a4b4934faa9e55b27e6dc8f
+  - enabled: 1
+    path: Assets/Scenes/InicioTutorial.unity
+    guid: 67ff0098ae041754e99da6943f44608c
+  - enabled: 1
+    path: Assets/Scenes/PantallaInicio.unity
+    guid: 79ba9ecf499005d478f9014faab6b86e
+  - enabled: 1
+    path: Assets/Scenes/PantallaChatsInicio.unity
+    guid: 22c8e700e31e61846835f4bdf42dafef
+  - enabled: 0
+    path: Assets/PantallaConversaciones.unity
+    guid: 3cd2d3a2378964148a6b431f279cdc76
+  - enabled: 1
+    path: Assets/Scenes/PantallaConversaciones.unity
+    guid: 81460e28176387a4283c8e3fd28985cf
+  - enabled: 1
+    path: Assets/Scenes/Publicaciones.unity
+    guid: 4e465d1f473f0aa4cbc45a1b177334f4
+  - enabled: 1
+    path: Assets/Scenes/PantallaCalendario.unity
+    guid: 5ef32df095a363148a5181f541b8d1fa
+  - enabled: 1
+    path: Assets/Scenes/Eventos.unity
+    guid: 82f52cf3c488bbe4da5874a3e053ac1b
+  - enabled: 1
+    path: Assets/Scenes/Finales.unity
+    guid: ad7ce21f71a7259438fd391d3fa9f467
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
