@@ -16,6 +16,7 @@ public class Event7Controller : MonoBehaviour
 
     public GameObject event3Panel;
     public GameObject event7Panel;
+    public GameObject event8Panel;
 
     public Button option1;
     public Button option2;
@@ -34,6 +35,12 @@ public class Event7Controller : MonoBehaviour
     public GameObject popupPrefab;
     public Transform popupContainer;
 
+
+    public Sprite iconValidacion;
+    public Sprite iconVinculos;
+    public Sprite iconAuto;
+
+
     void Start()
     {
         int chatID = PlayerPrefs.GetInt("currentChat", 0);
@@ -42,11 +49,19 @@ public class Event7Controller : MonoBehaviour
         {
             event3Panel.SetActive(true);
             event7Panel.SetActive(false);
+            event8Panel.SetActive(false);
         }
         else if (chatID == 7)
         {
             event3Panel.SetActive(false);
             event7Panel.SetActive(true);
+            event8Panel.SetActive(false);
+        }
+        else if (chatID == 8)
+        {
+            event3Panel.SetActive(false);
+            event7Panel.SetActive(false);
+            event8Panel.SetActive(true);
         }
 
         step = 0;
@@ -67,18 +82,18 @@ public class Event7Controller : MonoBehaviour
         switch (step)
         {
             case 1:
-                SetNPC(GameData.playerName, vacioSprite);
-                SetDialogue("Vaya, no esperaba que una salida con Aaron significara incluir a Natalia y Paula. Dudo que quieran aceptarme");
+                SetNPC("", vacioSprite);
+                SetDialogue("Vaya, no esperaba que una salida con Aarón significara incluir a Natalia y Paula. Dudo que quieran aceptarme");
                 break;
 
             case 2:
-                SetNPC("Aaron", aaronSprite);
+                SetNPC("Aarón", aaronSprite);
                 SetDialogue("Vaya linda, has llegado. Creí que correrías asustadiza al vernos a todos aquí. Chicas, saluden a " + GameData.playerName + ", seguro que la recuerdan");
                 break;
 
             case 3:
                 SetNPC("Natalia", nataliaSprite);
-                SetDialogue("Claro que la recuerdo, es la novata de la fiesta. Nena, espero que Paula te haya ayudado con las fotografías, esas que subías antes estaban OUT.");
+                SetDialogue("Claro que la recuerdo, es la novata de la fiesta. Niña, espero que Paula te haya ayudado con las fotografías, esas que subías antes estaban OUT.");
                 break;
 
             case 4:
@@ -87,64 +102,64 @@ public class Event7Controller : MonoBehaviour
                 break;
 
             case 5:
-                SetNPC(GameData.playerName, vacioSprite);
+                SetNPC("", vacioSprite);
                 SetDialogue("La conversación fluye tan bien entre ellas que me roban las palabras, no tengo idea de que decir para ser aceptada.");
-                ShowChoices("¡Claro que sí! Es increíble encontrarlas y más cuando han sido unos ángeles para mí.", "No esperaba encontrarlas aquí… Como Aaron no me mencionó nada, pero es bueno verlas chicas.");
+                ShowChoices("¡Claro que sí! Es increíble encontrarlas y más cuando han sido unos ángeles para mí.", "No esperaba encontrarlas aquí… Como Aarón no me mencionó nada, pero es bueno verlas chicas.");
                 break;
 
             case 6:
                 if (choice1 == 1)
                 {
                     SetNPC("Natalia", nataliaSprite);
-                    SetDialogue("Bueno, basta de hablar, nuestras bebidas ya casi llegan así que, toma asiento nena.");
+                    SetDialogue("Bueno, basta de hablar, nuestras bebidas ya casi llegan así que, toma asiento linda.");
                 }
                 else
                 {
                     SetNPC("Natalia", nataliaSprite);
-                    SetDialogue("Bueno, basta de hablar, nuestras bebidas ya casi llegan así que, toma asiento nena.");
+                    SetDialogue("Bueno, basta de hablar, nuestras bebidas ya casi llegan así que, toma asiento linda.");
                 }
                 break;
 
             case 7:
-                SetNPC(GameData.playerName, vacioSprite);
-                SetDialogue("¿Será que me comenzarán a mirar raro si sigo tan ensimismada? Debería agradecerle a Aaron por la invitación...");
+                SetNPC("", vacioSprite);
+                SetDialogue("¿Será que me comenzarán a mirar raro si sigo tan ensimismada? Debería agradecerle a Aarón por la invitación...");
                 
                 break;
 
             case 8:
                 SetNPC(GameData.playerName, vacioSprite);
-                SetDialogue("Muchas gracias por la invitación Aaron, es increíble este lugar como lo dijiste, tienes, bueno, tienen muy buen gusto.");
+                SetDialogue("Muchas gracias por la invitación Aarón, es increíble este lugar como lo dijiste, tienes, bueno, tienen muy buen gusto.");
               
                 break;
 
             case 9:
-                SetNPC("Aaron", aaronSprite);
+                SetNPC("Aarón", aaronSprite);
                 SetDialogue("Claro que sí niña, cualquier lugar de moda lo conozco como la palma de la mano, tú juntate conmigo y te mostraré un mundo que jamás imaginaste.");
 
                 break;
 
             case 10:
                 SetNPC("Natalia", nataliaSprite);
-                SetDialogue("Okay Aaron, that´s disgusting, deja a la pobre chica en paz, al menos por ahora. Nena, ¿te está molestando este patán guapetón?");
+                SetDialogue("Okay Aarón, that´s disgusting, deja a la pobre chica en paz, al menos por ahora. Bebé, ¿te está molestando este patán guapetón?");
                 ShowChoices("Jajaja, claro que no, es lindo que sean tan amables conmigo y que me dejen ser su amiga.", "Bueno, es algo incómodo, no estoy acostumbrada y no conozco demasiado a Aaron");
                 break;
 
             case 11:
                 if (choice2 == 1)
                 {
-                    SetNPC("Aaron", aaronSprite);
+                    SetNPC("Aarón", aaronSprite);
                     SetDialogue("Que astuta, esa carita linda no es de adorno, te podría hacer mi esposa trofeo aquí mismo");
                 }
                 else
                 {
-                    SetNPC("Aaron", aaronSprite);
+                    SetNPC("Aarón", aaronSprite);
                     SetDialogue("Que arrogante, solo te doy unos cuantos cumplidos y te comportas así? De verdad que hay mujeres tan infelices que no creen que alguien como yo les hará caso.");
                 }
                 break;
 
             case 12:
-                SetNPC("Aaron", aaronSprite);
-                SetDialogue("De cualquier forma, no importa lo que digas, nena. Es sensual cuando una mujer se hace la difícil, así que tengo más ganas de conquistarte.");
+                SetNPC("Aarón", aaronSprite);
+                SetDialogue("De cualquier forma, no importa lo que digas, niñita. Es sensual cuando una mujer se hace la difícil, así que tengo más ganas de conquistarte.");
                 break;
 
             case 13:
@@ -159,7 +174,7 @@ public class Event7Controller : MonoBehaviour
 
             case 15:
                 SetNPC("Natalia", nataliaSprite);
-                SetDialogue("Tranquila reina, déjame conversar primero. TN, ahora que estás viendo como vivimos estoy segura que estás más que sorprendida.");
+                SetDialogue("Tranquila reina, déjame conversar primero." + GameData.playerName + ", ahora que estás viendo como vivimos estoy segura que estás más que sorprendida.");
                 break;
 
             case 16:
@@ -198,12 +213,12 @@ public class Event7Controller : MonoBehaviour
                 break;
 
             case 21:
-                SetNPC("Aaron", aaronSprite);
+                SetNPC("Aarón", aaronSprite);
                 SetDialogue("Vamos linda, no temas y ve a tomarte esas fotos, estoy seguro que no solo a mi me encantará como te ves, sino a todos tus seguidores");
                 break;
 
             case 22:
-                SetNPC(GameData.playerName, vacioSprite);
+                SetNPC("", vacioSprite);
                 SetDialogue("Después de aquel comentario, la conversación fluyó. Aunque aún no había confirmado mi asistencia, era más que seguro que Paula esperaba mi presencia si no quería tener problemas.");
                 break;
 
@@ -334,6 +349,7 @@ public class Event7Controller : MonoBehaviour
         
         PlayerPrefs.SetInt("FromChat", 1);
         PlayerPrefs.SetInt("PostState", 0);
+        PlayerPrefs.SetInt("ComingFromYellow", 1);
 
         SceneManager.LoadScene("Publicaciones");
     }
@@ -344,7 +360,7 @@ public class Event7Controller : MonoBehaviour
         GameData.vinculos += vínculos;
         GameData.autopercepcion += autopercepción;
 
-      
+
         GameData.validacion = Mathf.Clamp(GameData.validacion, 0, 100);
         GameData.vinculos = Mathf.Clamp(GameData.vinculos, 0, 100);
         GameData.autopercepcion = Mathf.Clamp(GameData.autopercepcion, 0, 100);
@@ -352,6 +368,12 @@ public class Event7Controller : MonoBehaviour
         GameData.Save();
 
         ShowMultiplePopups(validación, vínculos, autopercepción);
+
+        var ui = FindFirstObjectByType<MetricsManagerUI>();
+        if (ui != null)
+        {
+            ui.UpdateMetrics();
+        }
     }
 
     string FormatStat(int value)
@@ -361,45 +383,86 @@ public class Event7Controller : MonoBehaviour
         return "0";
     }
 
-   
+
     void ShowMultiplePopups(int validacion, int vinculos, int autopercepcion)
     {
         if (validacion != 0)
-            CreatePopup("Validación " + (validacion > 0 ? "+" : "") + validacion, 0);
+            CreatePopup(validacion, iconValidacion, 0);
 
         if (vinculos != 0)
-            CreatePopup("Vínculos " + (vinculos > 0 ? "+" : "") + vinculos, 1);
+            CreatePopup(vinculos, iconVinculos, 1);
 
         if (autopercepcion != 0)
-            CreatePopup("Autopercepción " + (autopercepcion > 0 ? "+" : "") + autopercepcion, 2);
+            CreatePopup(autopercepcion, iconAuto, 2);
     }
 
-    
-    void CreatePopup(string text, int index)
+
+    void CreatePopup(int value, Sprite icon, int index)
     {
         GameObject popup = Instantiate(popupPrefab, popupContainer);
 
         TMP_Text txt = popup.GetComponentInChildren<TMP_Text>();
-        txt.text = text;
+        txt.text = (value > 0 ? "+" : "") + value;
+
+        Image iconImg = popup.transform.Find("Icon").GetComponent<Image>();
+        iconImg.sprite = icon;
 
         popup.transform.localPosition += new Vector3(0, -40 * index, 0);
 
         CanvasGroup cg = popup.GetComponent<CanvasGroup>();
+
+        cg.blocksRaycasts = false;   
+        cg.interactable = false;     
         StartCoroutine(AnimatePopup(popup.transform, cg));
     }
 
     IEnumerator AnimatePopup(Transform popup, CanvasGroup cg)
     {
-        float duration = 4f;
+        float fadeInTime = 0.3f;
+        float visibleTime = 3f; 
+        float fadeOutTime = 0.8f;
+
+        float floatDistance = 30f; 
         float timer = 0f;
 
         Vector3 startPos = popup.localPosition;
 
-        while (timer < duration)
+       
+        while (timer < fadeInTime)
         {
             timer += Time.deltaTime;
-            popup.localPosition = startPos + new Vector3(0, timer * 30f, 0);
-            cg.alpha = 1 - (timer / duration);
+            cg.alpha = timer / fadeInTime;
+
+            popup.localPosition = startPos + new Vector3(0, (timer / fadeInTime) * floatDistance, 0);
+
+            yield return null;
+        }
+
+        
+        cg.alpha = 1;
+        float visibleTimer = 0f;
+
+        while (visibleTimer < visibleTime)
+        {
+            visibleTimer += Time.deltaTime;
+
+          
+            popup.localPosition += new Vector3(0, Time.deltaTime * 5f, 0);
+
+            yield return null;
+        }
+
+  
+        timer = 0f;
+
+        while (timer < fadeOutTime)
+        {
+            timer += Time.deltaTime;
+
+            cg.alpha = 1 - (timer / fadeOutTime);
+
+            popup.localPosition += new Vector3(0, Time.deltaTime * 10f, 0);
+
             yield return null;
         }
 

@@ -17,6 +17,7 @@ public class Event3Controller : MonoBehaviour
  
     public GameObject event3Panel;
     public GameObject event7Panel;
+    public GameObject event8Panel;
 
     public Button option1;
     public Button option2;
@@ -40,6 +41,11 @@ public class Event3Controller : MonoBehaviour
     public GameObject popupPrefab;
     public Transform popupContainer;
 
+    public Sprite iconValidacion;
+    public Sprite iconVinculos;
+    public Sprite iconAuto;
+
+
     void Start()
     {
         int chatID = PlayerPrefs.GetInt("currentChat", 0);
@@ -48,11 +54,19 @@ public class Event3Controller : MonoBehaviour
         {
             event3Panel.SetActive(true);
             event7Panel.SetActive(false);
+            event8Panel.SetActive(false);
         }
         else if (chatID == 7)
         {
             event3Panel.SetActive(false);
             event7Panel.SetActive(true);
+            event8Panel.SetActive(false);
+        }
+        else if (chatID == 8)
+        {
+            event3Panel.SetActive(false);
+            event7Panel.SetActive(false);
+            event8Panel.SetActive(true);
         }
 
         step = 0;
@@ -75,25 +89,25 @@ public class Event3Controller : MonoBehaviour
         switch (step)
         {
             case 1:
-                SetNPC(GameData.playerName, vacioSprite);
+                SetNPC("", vacioSprite);
                 SetDialogue("Llego a la fiesta acompañada de Valentina. El sonido está por todos lados, es algo molesto.");
                 break;
             case 2:
                 SetNPC(GameData.playerName, vacioSprite);
-                SetDialogue("Val me dejó sola! uy, qué hago, no conozco a nadie!");
-                ShowChoices("Quedarme aqúi es lo más seguro", "Vayamos a hablar con ese chico de por allá");
+                SetDialogue("Val me dejó sola! Uy, qué hago, no conozco a nadie!");
+                ShowChoices("Quedarme aquí es lo más seguro", "Vayamos a hablar con ese chico de por allá");
                 break;
 
             case 3:
                 if (choice1 == 1)
                 {
-                    SetNPC(GameData.playerName, vacioSprite);
+                    SetNPC("", vacioSprite);
                     SetDialogue("Un chico aparece delante mío y me sonríe en cuanto me ve");
                 }
                 else
                 {
                     SetNPC("???", aaronSprite);
-                    SetDialogue("Buenas noches! Que onda! tu debes ser la chica de la que me contó Naty…");
+                    SetDialogue("Buenas noches! Que onda! tú debes ser la chica de la que me contó Naty…");
                 }
                 
                 break;
@@ -104,13 +118,13 @@ public class Event3Controller : MonoBehaviour
                     SetNPC("???", aaronSprite);
                     SetDialogue("Buenas noches! Que onda! tu debes ser la chica de la que me contó Naty… No me habia dicho lo linda que eres y los ojazos que tienes. Toma, te traje esta bebida");
                     
-                    ShowChoices("jaja, Gracias! tú tambien te ves muy guapo ¿como te llamas?", "ehhh… ¿tu eres?");
+                    ShowChoices("Jaja, Gracias! tú tambien te ves muy guapo ¿cómo te llamas?", "ehhh… ¿tú eres?");
                 }
                 else
                 {
                     SetNPC("???", aaronSprite);
                     SetDialogue("No me habia dicho lo linda que eres y los ojazos que tienes. Toma, te traje esta bebida");
-                    ShowChoices("jaja, Gracias! tú tambien te ves muy guapo ¿como te llamas?", "ehhh… ¿tu eres?");
+                    ShowChoices("Jaja, Gracias! tú tambien te ves muy guapo ¿cómo te llamas?", "ehhh… ¿Tú eres?");
 
                 }
                 break;
@@ -119,46 +133,46 @@ public class Event3Controller : MonoBehaviour
                 if (choice2 == 2)
                 {
                     SetNPC("???", aaronSprite);
-                    SetDialogue("¡claro! que descortés de mi parte, crei que todos aquí sabian quien soy");
+                    SetDialogue("¡Claro! que descortés de mi parte, creí que todos aquí sabian quien soy");
                     
                 }
                 else
                 {
                     SetNPC("???", aaronSprite);
-                    SetDialogue("¡claro! que descortés de mi parte, crei que todos aquí sabian quien soy.");
+                    SetDialogue("¡Claro! que descortés de mi parte, creí que todos aquí sabian quien soy.");
                    
                 }
                
                 break;
 
             case 6:
-                SetNPC("Aaron", aaronSprite);
-                SetDialogue("Aaron Praga, para servirle.");
-                ShowChoices("Disculpa. No tenia ni idea de quien eres", "Disculpa. No quería parecer grosera.");
+                SetNPC("Aarón", aaronSprite);
+                SetDialogue("Aarón Praga, para servirle.");
+                ShowChoices("Disculpa. No tenía ni idea de quien eres", "Disculpa. No quería parecer grosera.");
                 break;
 
             case 7:
                 if (choice3 == 3)
                 {
-                    SetNPC("Aaron", aaronSprite);
+                    SetNPC("Aarón", aaronSprite);
                     SetDialogue("Te quería ofrecer esta bebida. Las anda preparando Mark por ahi en el bar.");
                 }
                 else
                 {
-                    SetNPC("Aaron", aaronSprite);
+                    SetNPC("Aarón", aaronSprite);
                     SetDialogue("Te quería ofrecer esta bebida. Las anda preparando Mark por ahi en el bar.");
                 }
                 break;
 
             case 8:
                 SetNPC(GameData.playerName, vacioSprite);
-                SetDialogue("¿de qué es?"); 
+                SetDialogue("¿De qué es?"); 
 
                 break;
 
             case 9:
-                SetNPC("Aaron", aaronSprite);
-                SetDialogue("Eso importa? es alcohol, es lo unico que importa, así que, ¿qué dices?");
+                SetNPC("Aarón", aaronSprite);
+                SetDialogue("¿Eso importa? es alcohol, es lo unico que importa, así que, ¿qué dices?");
                 ShowChoices("Tomar del vaso", "No tomar");
 
                 break;
@@ -167,7 +181,7 @@ public class Event3Controller : MonoBehaviour
                 if (choice4 == 1)
                 {
                     SetNPC(GameData.playerName, vacioSprite);
-                    SetDialogue("Bueno, esta bien… un vaso no debería ser mayor problema.");
+                    SetDialogue("Bueno, está bien… un vaso no debería ser mayor problema.");
                 }
                 else
                 {
@@ -177,15 +191,15 @@ public class Event3Controller : MonoBehaviour
                 break;
 
             case 11:
-                SetNPC(GameData.playerName, vacioSprite);
-                SetDialogue("La fiesta continúa. AARON sigue al lado de PROTAGONISTA, baila mientras toma. Actua como un animal, pero eso parece agradarle a las chicas y hombres que están por ahí.");
+                SetNPC("", vacioSprite);
+                SetDialogue("La fiesta continúa. Aarón sigue al lado mío, baila mientras toma. Actúa como un animal, pero eso parece agradarle a las chicas y hombres que están por ahí.");
                 
                 
                 break;
 
             case 12:
                 SetNPC("Valentina", vacioSprite);
-                SetDialogue("NENA?!? DONDE ESTÁS? NO TE VEOOOO!");
+                SetDialogue("NENA?!? ¿DÓNDE ESTÁS? NO TE VEOOOO!");
                 break;
 
             case 13:
@@ -203,8 +217,8 @@ public class Event3Controller : MonoBehaviour
 
             case 15:
                 SetNPC("Natalia", nataliaSprite);
-                SetDialogue("Ugh. No necesito introducción, claro que ya sabe quien soy. Verdad?");
-                ShowChoices("Claro! Natalia, es un gusto conocerte!", "Eh, aún así sería amble que te presentes");
+                SetDialogue("Ugh. No necesito introducción, claro que ya sabe quien soy. ¿Verdad?");
+                ShowChoices("Claro! Natalia, es un gusto conocerte!", "Eh, aún así sería amable que te presentes");
 
                 
                 break;
@@ -217,8 +231,8 @@ public class Event3Controller : MonoBehaviour
                 }
                 else
                 {
-                    SetNPC(GameData.playerName, vacioSprite);
-                    SetDialogue("Natalia se rie. Tu insolencia le parece algo patetica.");
+                    SetNPC("", vacioSprite);
+                    SetDialogue("Natalia se rÍe. Tu insolencia le parece algo patética.");
                 }
                 break;
 
@@ -231,7 +245,7 @@ public class Event3Controller : MonoBehaviour
                 else
                 {
                     SetNPC("Paula", paulaSprite);
-                    SetDialogue("¿Y tu quien te crees que eres para hablarle así a Naty? Tonta.");
+                    SetDialogue("¿Y tú quien te crees que eres para hablarle así a Naty? Tonta.");
                 }
                 break;
 
@@ -255,7 +269,7 @@ public class Event3Controller : MonoBehaviour
                 if (choice6 == 1)
                 {
                     SetNPC("Natalia", nataliaSprite);
-                    SetDialogue("Eso es lo que me gusta Oir! Venga linda, vamos por otro vaso y brindemos hasta el amanecer!");
+                    SetDialogue("Eso es lo que me gusta oir! Venga linda, vamos por otro vaso y brindemos hasta el amanecer!");
                 }
                 else
                 {
@@ -268,13 +282,13 @@ public class Event3Controller : MonoBehaviour
             case 21:
                 if (choice6 == 1)
                 {
-                    SetNPC(GameData.playerName, vacioSprite);
+                    SetNPC("", vacioSprite);
                     SetDialogue("En lo que restó de la fiesta, pude pasar tiempo con Natalia e incluso, nos tomamos una selfie que publicó en su Orion");
                 }
                 else
                 {
-                    SetNPC(GameData.playerName, vacioSprite);
-                    SetDialogue("Pase el resto de la fiesta con Valentina, después de ese comentario, me sentí descolocada.");
+                    SetNPC("", vacioSprite);
+                    SetDialogue("Pasé el resto de la fiesta con Valentina, después de ese comentario, me sentí descolocada.");
                 }
                 
 
@@ -464,6 +478,12 @@ public class Event3Controller : MonoBehaviour
         GameData.Save();
 
         ShowMultiplePopups(validación, vínculos, autopercepción);
+
+        var ui = FindFirstObjectByType<MetricsManagerUI>();
+        if (ui != null)
+        {
+            ui.UpdateMetrics();
+        }
     }
 
     string FormatStat(int value)
@@ -477,41 +497,82 @@ public class Event3Controller : MonoBehaviour
     void ShowMultiplePopups(int validacion, int vinculos, int autopercepcion)
     {
         if (validacion != 0)
-            CreatePopup("Validación " + (validacion > 0 ? "+" : "") + validacion, 0);
+            CreatePopup(validacion, iconValidacion, 0);
 
         if (vinculos != 0)
-            CreatePopup("Vínculos " + (vinculos > 0 ? "+" : "") + vinculos, 1);
+            CreatePopup(vinculos, iconVinculos, 1);
 
         if (autopercepcion != 0)
-            CreatePopup("Autopercepción " + (autopercepcion > 0 ? "+" : "") + autopercepcion, 2);
+            CreatePopup(autopercepcion, iconAuto, 2);
     }
 
     
-    void CreatePopup(string text, int index)
+    
+    void CreatePopup(int value, Sprite icon, int index)
     {
         GameObject popup = Instantiate(popupPrefab, popupContainer);
 
+        
         TMP_Text txt = popup.GetComponentInChildren<TMP_Text>();
-        txt.text = text;
+        txt.text = (value > 0 ? "+" : "") + value;
 
+      
+        Image iconImg = popup.transform.Find("Icon").GetComponent<Image>();
+        iconImg.sprite = icon;
+
+       
         popup.transform.localPosition += new Vector3(0, -40 * index, 0);
 
         CanvasGroup cg = popup.GetComponent<CanvasGroup>();
+
         StartCoroutine(AnimatePopup(popup.transform, cg));
     }
 
     IEnumerator AnimatePopup(Transform popup, CanvasGroup cg)
     {
-        float duration = 4f;
+        float fadeInTime = 0.3f;
+        float visibleTime = 3f; 
+        float fadeOutTime = 0.8f;
+
+        float floatDistance = 30f; 
         float timer = 0f;
 
         Vector3 startPos = popup.localPosition;
 
-        while (timer < duration)
+      
+        while (timer < fadeInTime)
         {
             timer += Time.deltaTime;
-            popup.localPosition = startPos + new Vector3(0, timer * 30f, 0);
-            cg.alpha = 1 - (timer / duration);
+            cg.alpha = timer / fadeInTime;
+
+            popup.localPosition = startPos + new Vector3(0, (timer / fadeInTime) * floatDistance, 0);
+
+            yield return null;
+        }
+
+        cg.alpha = 1;
+        float visibleTimer = 0f;
+
+        while (visibleTimer < visibleTime)
+        {
+            visibleTimer += Time.deltaTime;
+
+      
+            popup.localPosition += new Vector3(0, Time.deltaTime * 5f, 0);
+
+            yield return null;
+        }
+
+        timer = 0f;
+
+        while (timer < fadeOutTime)
+        {
+            timer += Time.deltaTime;
+
+            cg.alpha = 1 - (timer / fadeOutTime);
+
+            popup.localPosition += new Vector3(0, Time.deltaTime * 10f, 0);
+
             yield return null;
         }
 

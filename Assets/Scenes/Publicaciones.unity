@@ -995,7 +995,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4bd5c246ecbbb0942a37da20c07d54b4, type: 3}
+    m_Font: {fileID: 12800000, guid: 97b4fa9eceda2414b881b87759d25796, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -4850,25 +4850,28 @@ MonoBehaviour:
   likesText: {fileID: 330353593}
   popupPrefab: {fileID: 8188557436218209825, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
   popupContainer: {fileID: 977898832}
+  iconValidacion: {fileID: 9178029694043269099, guid: 528fcab0897a28c44ab367c7522eac5d, type: 3}
+  iconVinculos: {fileID: -8963026364624441560, guid: 4bbf870dd46a1d74aa2df4785fec112a, type: 3}
+  iconAuto: {fileID: -6163066715141464702, guid: ce1e65ab669e292459c0ac815dcc54b1, type: 3}
   selectedImageUI: {fileID: 618155239}
   finalPostImage: {fileID: 1265514165}
   feedImage: {fileID: 691595686}
   images:
-  - {fileID: 524645924203074754, guid: 7d4fceba4fddb784b8524f14e9380806, type: 3}
-  - {fileID: 7288399994486057411, guid: 0378a1105c781a54f945113a518bbf4b, type: 3}
-  - {fileID: 5320790582425211565, guid: b73c89752bcccbf41b97c5b1ea26259b, type: 3}
-  - {fileID: -1036214794337494472, guid: 34b75a3f735c4604ca9b339653735510, type: 3}
-  - {fileID: 4009355068965086491, guid: c666ecf9e93064849afaba14f2fd107e, type: 3}
-  - {fileID: -3739957133524300147, guid: a180eeadda258654ebc97e2a0db6176b, type: 3}
+  - {fileID: -1012926827480591324, guid: 27d5048177864024ea343280a6702be0, type: 3}
+  - {fileID: 4688586060609350195, guid: c16a3103c00a75c4a9c064ff514ed302, type: 3}
+  - {fileID: 8151012520426244519, guid: ad643e2bc49d349469b729ee705f1626, type: 3}
+  - {fileID: 4592652561541802190, guid: a435a555e937bc64b849eb9a8e7d6235, type: 3}
+  - {fileID: 8700538041743680238, guid: 7f8a3654b57600541a72f75e0547329a, type: 3}
+  - {fileID: 1972656257481493435, guid: 67269f1bd0e52444f915aebec51e8b50, type: 3}
   imagesChat0:
-  - {fileID: 524645924203074754, guid: 7d4fceba4fddb784b8524f14e9380806, type: 3}
-  - {fileID: 7288399994486057411, guid: 0378a1105c781a54f945113a518bbf4b, type: 3}
+  - {fileID: -1012926827480591324, guid: 27d5048177864024ea343280a6702be0, type: 3}
+  - {fileID: 4688586060609350195, guid: c16a3103c00a75c4a9c064ff514ed302, type: 3}
   imagesChat6:
-  - {fileID: 5320790582425211565, guid: b73c89752bcccbf41b97c5b1ea26259b, type: 3}
-  - {fileID: -1036214794337494472, guid: 34b75a3f735c4604ca9b339653735510, type: 3}
+  - {fileID: 8151012520426244519, guid: ad643e2bc49d349469b729ee705f1626, type: 3}
+  - {fileID: 4592652561541802190, guid: a435a555e937bc64b849eb9a8e7d6235, type: 3}
   imagesChat7:
-  - {fileID: 4009355068965086491, guid: c666ecf9e93064849afaba14f2fd107e, type: 3}
-  - {fileID: -3739957133524300147, guid: a180eeadda258654ebc97e2a0db6176b, type: 3}
+  - {fileID: 8700538041743680238, guid: 7f8a3654b57600541a72f75e0547329a, type: 3}
+  - {fileID: 1972656257481493435, guid: 67269f1bd0e52444f915aebec51e8b50, type: 3}
   postPanels:
   - {fileID: 303784407}
   - {fileID: 88263684}
@@ -5581,6 +5584,7 @@ GameObject:
   - component: {fileID: 1939107292}
   - component: {fileID: 1939107291}
   - component: {fileID: 1939107294}
+  - component: {fileID: 1939107295}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5706,6 +5710,18 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1939107295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939107290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fcb97de5da7d043aaf94769da99370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CamaraSize
 --- !u!1 &1986248843
 GameObject:
   m_ObjectHideFlags: 0

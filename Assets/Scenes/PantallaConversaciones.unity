@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 465526319}
   - component: {fileID: 465526318}
   - component: {fileID: 465526321}
+  - component: {fileID: 465526322}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -696,6 +697,18 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &465526322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465526317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fcb97de5da7d043aaf94769da99370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CamaraSize
 --- !u!1 &578740869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1211,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Has decidido abrir ORION. Decide que tipo de foto quieres y c\xF3mo deseas
+  m_Text: "Has decidido abrir Orion. Decide que tipo de foto quieres y c\xF3mo deseas
     editarla, presionando este bot\xF3n."
 --- !u!222 &889812432
 CanvasRenderer:
@@ -1342,10 +1355,13 @@ MonoBehaviour:
   playerInputField: {fileID: 1284386824}
   inputPanel: {fileID: 1284386822}
   popupCanvasGroup: {fileID: 578740874}
-  popupDuration: 1.5
-  floatSpeed: 30
+  popupDuration: 5
+  floatSpeed: 15
   popupPrefab: {fileID: 8188557436218209825, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
   popupContainer: {fileID: 578740873}
+  iconValidacion: {fileID: 9178029694043269099, guid: 528fcab0897a28c44ab367c7522eac5d, type: 3}
+  iconVinculos: {fileID: -8963026364624441560, guid: 4bbf870dd46a1d74aa2df4785fec112a, type: 3}
+  iconAuto: {fileID: -6163066715141464702, guid: ce1e65ab669e292459c0ac815dcc54b1, type: 3}
   valentinaSprite: {fileID: -7075863073788391137, guid: 90d2c224174c3c04b91373c33393ad82, type: 3}
   aaronSprite: {fileID: -3527071058071337247, guid: c7e506d7714ba9f47b56f2f07de59273, type: 3}
   nataliaSprite: {fileID: -2258890220632168224, guid: 9b3ff8a1bf8f8b844afa2de16104ff69, type: 3}
@@ -2345,6 +2361,8 @@ GameObject:
   - component: {fileID: 1464580850}
   - component: {fileID: 1464580849}
   - component: {fileID: 1464580851}
+  - component: {fileID: 1464580852}
+  - component: {fileID: 1464580853}
   m_Layer: 5
   m_Name: Opcion2
   m_TagString: Untagged
@@ -2453,7 +2471,102 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1464580849}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1007573274}
+        m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!95 &1464580852
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464580847}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7473a1d8e874ee24a80a0ba9da9740b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1464580853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464580847}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1007573274}
+          m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+          m_MethodName: OnHoverEnterOp2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1007573274}
+          m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+          m_MethodName: OnHoverExitOp2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1007573274}
+          m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+          m_MethodName: OnClickOp2
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1473048598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,6 +2658,8 @@ GameObject:
   - component: {fileID: 1558300437}
   - component: {fileID: 1558300436}
   - component: {fileID: 1558300438}
+  - component: {fileID: 1558300439}
+  - component: {fileID: 1558300440}
   m_Layer: 5
   m_Name: Opcion1
   m_TagString: Untagged
@@ -2653,7 +2768,102 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1558300436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1007573274}
+        m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+        m_MethodName: Choose
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!95 &1558300439
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558300434}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1cbb32417565524eb4e0600e3298b7e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1558300440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558300434}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1007573274}
+          m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+          m_MethodName: OnHoverEnterOp1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1007573274}
+          m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+          m_MethodName: OnHoverExitOp1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1007573274}
+          m_TargetAssemblyTypeName: Chat1Valentina, Assembly-CSharp
+          m_MethodName: OnClickOp1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1585898853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,7 +3146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Asistir a
+  m_Text: Asistir
 --- !u!222 &1776993573
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2998,7 +3208,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 266, y: 472}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3209,12 +3419,32 @@ PrefabInstance:
       value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 419141337922603194, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_text
+      value: New text
+      objectReference: {fileID: 0}
+    - target: {fileID: 419141337922603194, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
       propertyPath: m_fontSize
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 419141337922603194, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fb9417d09dab474e891e247d9321eee, type: 2}
+    - target: {fileID: 419141337922603194, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
       propertyPath: m_fontSizeBase
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 419141337922603194, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2934174246455091110, guid: 9fb9417d09dab474e891e247d9321eee, type: 2}
+    - target: {fileID: 419141337922603194, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458460449046417212, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 739402417641568139, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
       propertyPath: m_Pivot.x
@@ -3319,6 +3549,22 @@ PrefabInstance:
     - target: {fileID: 4365407966378883239, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
       propertyPath: m_SortingOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841347701316608235, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287477957090939730, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50.563187
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287477957090939730, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -115.20001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078405158729077858, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8188557436218209825, guid: 29b65815b5a91b242944f2b760735fdc, type: 3}
       propertyPath: m_Name

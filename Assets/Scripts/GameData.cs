@@ -70,6 +70,41 @@ public static class GameData
         }
     }
 
+    
+    public static void ResetAll()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+
+        validacion = 50;
+        vinculos = 50;
+        autopercepcion = 50;
+        arquetipo = 0;
+        body = 0;
+        face = 0;
+        hair = 0;
+        outfit = 0;
+        playerName = "Tú";
+        didCustomization = false;
+        chat1Read = false;
+        chat1Unlocked = false;
+        chat1Done = false;
+
+        InitIfNeeded();
+
+        for (int i = 0; i < totalChats; i++)
+        {
+            chatsUnlocked[i] = false;
+            chatsRead[i] = false;
+            chatsDone[i] = false;
+        }
+
+        for (int i = 0; i < totalEvents; i++)
+        {
+            eventsCompleted[i] = false;
+        }
+    }
+
     // 
 
     public static void Save()

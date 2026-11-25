@@ -62,8 +62,9 @@ public class NotificationController : MonoBehaviour
             case 4: return "Ángela";
             case 5: return "Natalia";
             case 6: return "Paula";
-            case 7: return "Luka";
-            case 8: return "Valentina";
+            case 7: return "Aarón";
+                //aqui se termina
+            case 8: return "Ángela";
             case 9: return "Paula";
             case 10: return "Paula";
             case 11: return "Ángela";
@@ -93,6 +94,7 @@ public class NotificationController : MonoBehaviour
             case 5: return "Hey!";
             case 6: return "???";
             case 7: return "Hola perdida…";
+            case 8: return "Oye...";
             default: return "...";
         }
     }

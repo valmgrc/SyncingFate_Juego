@@ -5,7 +5,10 @@ using UnityEngine.UI;
 public class Pausa : MonoBehaviour
 {
     public GameObject Panel;
-    public GameObject PanelMetrica;
+    
+    public GameObject PanelMetrica1;
+    public GameObject PanelMetrica2;
+    public GameObject PanelMetrica3;
 
 
     void Start ()
@@ -43,17 +46,42 @@ public class Pausa : MonoBehaviour
 
 
     //funciones para la info de las metricas
-    public void InfoMetricasOn()
+    public void InfoMetricas1On()
     {
 
-        PanelMetrica.SetActive(true);
+        PanelMetrica1.SetActive(true);
     }
-
-    public void InfoMetricasOff()
+    public void InfoMetricas2On()
     {
 
-        PanelMetrica.SetActive(false);
+        PanelMetrica2.SetActive(true);
     }
+    public void InfoMetricas3On()
+    {
+
+        PanelMetrica3.SetActive(true);
+    }
+
+
+
+    public void InfoMetricas1Off()
+    {
+
+        PanelMetrica1.SetActive(false);
+    }
+
+    public void InfoMetricas2Off()
+    {
+
+        PanelMetrica2.SetActive(false);
+    }
+    public void InfoMetricas3Off()
+    {
+
+        PanelMetrica3.SetActive(false);
+    }
+
+
 
 
 }

@@ -17,6 +17,11 @@ public class PostSystem : MonoBehaviour
     public GameObject popupPrefab;
     public Transform popupContainer;
 
+    public Sprite iconValidacion;
+    public Sprite iconVinculos;
+    public Sprite iconAuto;
+
+
 
     int selectedFilter = 0; 
     int selectedImageID; //imagenes post
@@ -57,16 +62,24 @@ public class PostSystem : MonoBehaviour
         PlayerPrefs.SetInt("FromChat", 0);
         PlayerPrefs.SetInt("PostState", -1);
 
-        if (fromChat == 1 && postState == 0)
+        if (fromChat == 1 && postState == 0 && PlayerPrefs.HasKey("ComingFromYellow"))
         {
             selectPanel.SetActive(true);
+
+           
+            PlayerPrefs.SetInt("FromChat", 0);
+            PlayerPrefs.SetInt("PostState", -1);
         }
         else
         {
-            if (normalFeedPanel != null) normalFeedPanel.SetActive(true);
+            normalFeedPanel.SetActive(true);
+
+           
+            PlayerPrefs.SetInt("FromChat", 0);
+            PlayerPrefs.SetInt("PostState", -1);
         }
 
-       
+        PlayerPrefs.DeleteKey("ComingFromYellow");
 
         LoadFeedImage();
     }
@@ -147,8 +160,13 @@ public class PostSystem : MonoBehaviour
         }
 
 
-        FindAnyObjectByType<MetricsManagerUI>(); 
         
+        var ui = FindFirstObjectByType<MetricsManagerUI>();
+        if (ui != null)
+        {
+            ui.UpdateMetrics();
+        }
+
         Invoke("ShowFeed", 2f);
 
         int id = PlayerPrefs.GetInt("SelectedImage", 0);
@@ -216,12 +234,20 @@ public class PostSystem : MonoBehaviour
         }
         else if (chatID == 7)
         {
-            int average = (GameData.validacion + GameData.vinculos + GameData.autopercepcion) / 3;
-            PlayerPrefs.SetInt("EndingType", average >= 50 ? 1 : 0);
+           
+            GameData.chatsDone[7] = true;
+            GameData.chatsRead[7] = true;
+
+            
+            GameData.chatsUnlocked[8] = true;
+            GameData.chatsRead[8] = false;
+
+            GameData.Save();
+
             PlayerPrefs.SetInt("FromChat", 0);
             PlayerPrefs.SetInt("PostState", -1);
 
-            SceneManager.LoadScene("Finales");
+            SceneManager.LoadScene("PantallaChatsInicio");
         }
         else 
         { 
@@ -331,46 +357,95 @@ public class PostSystem : MonoBehaviour
         GameData.Save();
 
         ShowMultiplePopups(validacion, vinculos, autopercepcion);
+
+        var ui = FindFirstObjectByType<MetricsManagerUI>();
+        if (ui != null)
+        {
+            ui.UpdateMetrics();
+        }
     }
+
+
 
     void ShowMultiplePopups(int validacion, int vinculos, int autopercepcion)
     {
         if (validacion != 0)
-            CreatePopup("Validación " + (validacion > 0 ? "+" : "") + validacion, 0);
+            CreatePopup(validacion, iconValidacion, 0);
 
         if (vinculos != 0)
-            CreatePopup("Vínculos " + (vinculos > 0 ? "+" : "") + vinculos, 1);
+            CreatePopup(vinculos, iconVinculos, 1);
 
         if (autopercepcion != 0)
-            CreatePopup("Autopercepción " + (autopercepcion > 0 ? "+" : "") + autopercepcion, 2);
+            CreatePopup(autopercepcion, iconAuto, 2);
     }
 
-    
-    void CreatePopup(string text, int index)
+
+    void CreatePopup(int value, Sprite icon, int index)
     {
         GameObject popup = Instantiate(popupPrefab, popupContainer);
 
+       
         TMP_Text txt = popup.GetComponentInChildren<TMP_Text>();
-        txt.text = text;
+        txt.text = (value > 0 ? "+" : "") + value;
 
+      
+        Image iconImg = popup.transform.Find("Icon").GetComponent<Image>();
+        iconImg.sprite = icon;
+
+       
         popup.transform.localPosition += new Vector3(0, -40 * index, 0);
 
         CanvasGroup cg = popup.GetComponent<CanvasGroup>();
+
         StartCoroutine(AnimatePopup(popup.transform, cg));
     }
 
     IEnumerator AnimatePopup(Transform popup, CanvasGroup cg)
     {
-        float duration = 4f;
+        float fadeInTime = 0.3f;
+        float visibleTime = 3f; 
+        float fadeOutTime = 0.8f;
+
+        float floatDistance = 30f; 
         float timer = 0f;
 
         Vector3 startPos = popup.localPosition;
 
-        while (timer < duration)
+   
+        while (timer < fadeInTime)
         {
             timer += Time.deltaTime;
-            popup.localPosition = startPos + new Vector3(0, timer * 30f, 0);
-            cg.alpha = 1 - (timer / duration);
+            cg.alpha = timer / fadeInTime;
+
+            popup.localPosition = startPos + new Vector3(0, (timer / fadeInTime) * floatDistance, 0);
+
+            yield return null;
+        }
+
+       
+        cg.alpha = 1;
+        float visibleTimer = 0f;
+
+        while (visibleTimer < visibleTime)
+        {
+            visibleTimer += Time.deltaTime;
+
+            popup.localPosition += new Vector3(0, Time.deltaTime * 5f, 0);
+
+            yield return null;
+        }
+
+   
+        timer = 0f;
+
+        while (timer < fadeOutTime)
+        {
+            timer += Time.deltaTime;
+
+            cg.alpha = 1 - (timer / fadeOutTime);
+
+            popup.localPosition += new Vector3(0, Time.deltaTime * 10f, 0);
+
             yield return null;
         }
 

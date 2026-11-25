@@ -28,7 +28,7 @@ public class FinalesController : MonoBehaviour
     {
         GameData.ResetData();
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene("PantallaInicio");
+        SceneManager.LoadScene("InicioInicio");
     }
 
     /// <summary>Cierra la aplicación.</summary>

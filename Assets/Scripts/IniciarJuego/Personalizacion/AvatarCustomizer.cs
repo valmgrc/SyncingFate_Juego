@@ -16,7 +16,16 @@ public class AvatarCustomizer : MonoBehaviour
 
     public Sprite[] outfitBody0; 
     public Sprite[] outfitBody1; 
-    public Sprite[] outfitBody2; 
+    public Sprite[] outfitBody2;
+
+    public Animator bodyAnim;
+    public Animator faceAnim;
+    public Animator hairAnim;
+    public Animator outfitAnim;
+
+
+    
+    
 
     Sprite[] currentOutfits; 
 
@@ -32,11 +41,8 @@ public class AvatarCustomizer : MonoBehaviour
         UpdateAvatar();
     }
 
-    // 
-    public void TestBoton()
-    {
-        Debug.Log("si funcionalol");
-    }
+    
+
 
     public void NextBody()
     {
@@ -83,7 +89,24 @@ public class AvatarCustomizer : MonoBehaviour
 
     }
 
-    
+    public void OnHoverEnter(int tipo)
+    {
+        GetAnimator(tipo).SetBool("isHover", true);
+    }
+
+    public void OnHoverExit(int tipo)
+    {
+        GetAnimator(tipo).SetBool("isHover", false);
+    }
+
+    Animator GetAnimator(int t)
+    {
+        if (t == 1) return bodyAnim;
+        if (t == 2) return faceAnim;
+        if (t == 3) return hairAnim;
+        return outfitAnim;
+    }
+
     public void Confirm()
     {
         GameData.body = currentBody;

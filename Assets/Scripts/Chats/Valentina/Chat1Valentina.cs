@@ -17,6 +17,8 @@ public class Chat1Valentina : MonoBehaviour
     public GameObject nextButton;
     public GameObject yellowButton;
 
+  
+
 
     public Text yellowButtonText;
 
@@ -29,6 +31,10 @@ public class Chat1Valentina : MonoBehaviour
 
     public GameObject popupPrefab;
     public Transform popupContainer;
+
+    public Sprite iconValidacion;
+    public Sprite iconVinculos;
+    public Sprite iconAuto;
 
     //avatarcitos de todos
     public Sprite valentinaSprite;
@@ -77,7 +83,7 @@ public class Chat1Valentina : MonoBehaviour
         if (chatID == 0 || chatID == 6 || chatID == 18)
             yellowType = YellowButtonType.Publication;
 
-        else if (chatID == 3 || chatID == 7 || chatID == 17)
+        else if (chatID == 3 || chatID == 7 || chatID == 8 || chatID == 17)
             yellowType = YellowButtonType.Event;
 
         else
@@ -115,15 +121,15 @@ public class Chat1Valentina : MonoBehaviour
             // 
             case 1:
 
-                if (chatID == 0) ShowMessage("Valentina", "¿Ya revisaste la nueva publicación de Natalia en ORION?");   
-                else if (chatID == 1) ShowMessage("Ángela", "¿Estrenando cuenta de ORION? Vi tu publicación! Me encantó, obvio le di like.");
-                else if (chatID == 2) ShowMessage("Valentina", "Loba! Ya andas robando likes desde ahorita nena!");
-                else if (chatID == 3) ShowMessage("Valentina", "Recuerdas a Natalia?");
+                if (chatID == 0) ShowMessage("Valentina", "¿Ya revisaste la nueva publicación de Natalia en Orion?");   
+                else if (chatID == 1) ShowMessage("Ángela", "¿Estrenando cuenta de Orion? Vi tu publicación! Me encantó, obvio le di like.");
+                else if (chatID == 2) ShowMessage("Valentina", "¡Loba, ya andas robando likes desde ahorita nena!");
+                else if (chatID == 3) ShowMessage("Valentina", "¿Recuerdas a Natalia?");
                 else if (chatID == 4) ShowMessage("Ángela", "Vi que saliste de fiesta");
                 else if (chatID == 5) ShowMessage("Natalia", "Hey!");
                 else if (chatID == 6) ShowMessage("Paula", "???");
-                else if (chatID == 7) ShowMessage("Aaron", "Hola perdida…");
-                else if (chatID == 8) ShowMessage("Valentina", "Texto1");
+                else if (chatID == 7) ShowMessage("Aarón", "Hola perdida…"); //aqui tengo actualmente terminado
+                else if (chatID == 8) ShowMessage("Ángela", "Oye, tengo una pregunta");
                 else if (chatID == 9) ShowMessage("Paula", "Texto1");
                 else if (chatID == 10) ShowMessage("Paula", "Texto1");
                 else if (chatID == 11) ShowMessage("Ángela", "Texto1");
@@ -144,17 +150,17 @@ public class Chat1Valentina : MonoBehaviour
                 if (chatID == 0)
                 {
                     ShowMessage("Valentina", "Creo que se operó el pecho y se hizo la rino de paso!");
-                    ShowChoices("No, nisiquiera sé que es eso. Es esa nueva red social que todos andan abriendo ¿no?", "Uhhhh, chismecitooo. Lástima no tengo ORION.");
+                    ShowChoices("No, ni siquiera sé que es eso. Es esa nueva red social que todos andan abriendo ¿no?", "Uhhhh, chismesitooo. Lástima no tengo Orion.");
                 }
                 else if (chatID == 1)
                 {
                    
-                    ShowChoices("Recibí muchas cantidades de likes, tú crees? Y se sintió bien", "Gracias! aunque no me sentí del todo cómoda.");
+                    ShowChoices("Recibí muchas cantidades de likes, ¿tú crees? Y se sintió bien", "Gracias! aunque no me sentí del todo cómoda.");
                 }
                 else if (chatID == 2)
                 {
                     ShowMessage("Valentina", "¿Qué tal, eh?");
-                    ShowChoices("uyyy, Gracias nena! Aquí empieza mi arco de fama!", " Me siento algo extraña recibiendo tanta atención. Como que entre más veo mi foto más rara me veo.");
+                    ShowChoices("Uyyy, Gracias nena! Aquí empieza mi arco de fama!", " Me siento algo extraña recibiendo tanta atención. Siento que entre más veo mi foto más rara me veo.");
                     
                 }
                 else if (chatID == 3)
@@ -172,19 +178,25 @@ public class Chat1Valentina : MonoBehaviour
 
                 else if (chatID == 5)
                 {
-                    ShowMessage("Natalia", "Mira, varias personas me preguntarón que onda contigo de que en buen pedo…");
-                    ShowChoices("Hola Nat. Que bien que dejé una impresión en ellos. ¿dijeron más?", "Hola Nat… Pues que les dijiste o qué? No me gustan esos puntos suspensivos que dejaste ahí…");
+                    ShowMessage("Natalia", "Mira, varias personas me preguntaron que onda contigo de que en buen pedo…");
+                    ShowChoices("Hola Nat. Que bien que dejé una impresión en ellos. ¿dijeron más?", "Hola Nat… Pues ¿qué les dijiste o qué? No me gustan esos puntos suspensivos que dejaste ahí…");
 
                 }
                 else if (chatID == 6)
                 {
-                    ShowMessage(GameData.playerName, "Hola Pau! ¿como estás? Soy la chica de la fiesta, amiga de Val.");
+                    ShowMessage(GameData.playerName, "Hola Pau! ¿cómo estás? Soy la chica de la fiesta, amiga de Val.");
         
                 }
                 else if (chatID == 7)
                 {
-                    ShowMessage("Aaron", "¿Cómo va todo?");
+                    ShowMessage("Aarón", "¿Cómo va todo?");
                     ShowChoices("Hellooo! Todo super chill! tuuuu, que tal?", "Hola Aaron, pues bien, algo raro la verdad.");
+
+                }
+                else if (chatID == 8)
+                {
+                    ShowMessage("Ángela", "Vi la publicación que subiste, me gustaría hablar contigo");
+                    ShowChoices("Hola Ángela, claro, solo que tengo poco tiempo, ahora tengo muchos compromisos", "Ángela que gusto hablar contigo, claro que sí, ¿qué te preocupa?");
 
                 }
                 else
@@ -212,7 +224,7 @@ public class Chat1Valentina : MonoBehaviour
                 }
                 else if (chatID == 5)
                 {
-                    ShowMessage("Natalia", "Mira, linda, creo que tienes todo lo necesario, sabes? Buen cuerpo, aunque sin cirugias, cara linda y tu cabello podria tener algunas mejoras, pero realmente eres un 7/10 ¿captas?");
+                    ShowMessage("Natalia", "Mira, linda, creo que tienes todo lo necesario, sabes? Buen cuerpo, aunque sin cirugias, cara linda, pero realmente eres un 7/10 ¿captas?");
                 }
                 else if (chatID == 6)
                 {
@@ -221,6 +233,11 @@ public class Chat1Valentina : MonoBehaviour
                 else if (chatID == 7)
                 {
                     ContinueNormal();
+
+                }
+                else if (chatID == 8)
+                {
+                    ResponseAfterChoice();
 
                 }
                 else
@@ -267,10 +284,19 @@ public class Chat1Valentina : MonoBehaviour
                 }
                 else if (chatID == 7)
                 {
-                    ShowMessage("Aaron", "Ja, si. Bueno, oye nena, me encantaría poder salir a tomar algo contigo un día de estos. Me pareciste super interesante y peculiar");
+                    ShowMessage("Aarón", "Ja, si. Bueno, oye nena, me encantaría poder salir a tomar algo contigo un día de estos. Me pareciste super interesante y peculiar");
                 }
+                else if (chatID == 7)
+                {
+                    ShowMessage("Aarón", "Ja, si. Bueno, oye nena, me encantaría poder salir a tomar algo contigo un día de estos. Me pareciste super interesante y peculiar");
+                }
+                else if (chatID == 8)
+                {
+                    ShowMessage(GameData.playerName, "¿Solo que? Vamos Angie somos amigas, puedes contarme lo que quieras");
+                }
+
                 else
-                    ShowMessage(contactNameText.text, "Texto3");
+                ShowMessage(contactNameText.text, "Texto3");
 
                 break;
 
@@ -279,11 +305,11 @@ public class Chat1Valentina : MonoBehaviour
 
                 if (chatID == 0)
                 {
-                    ShowMessage("Valentina", "¿Cómo no vas a saber nena? anda, es algo que hay que vivir, neta! ¿que tal que te consigues fama y un novio?");
+                    ShowMessage("Valentina", "¿Cómo no vas a saber nena? anda, es algo que hay que vivir, neta! ¿qué tal que te consigues fama y un novio?");
                 }
                 else if (chatID == 1)
                 {
-                    ShowMessage("Sistema", "Fin del chat");
+                    ShowMessage("Sistema", "Fin del chat, puedes regresar con la flecha ubicada en la parte superior");
                     
                     EndChatWithoutAction();
                 }
@@ -296,7 +322,7 @@ public class Chat1Valentina : MonoBehaviour
                 else if (chatID == 3)
                 {
                     ShowMessage("Valentina", "JAJAJ obvio! Bueno el chiste es que Nat te quiere invitar a su fiesta! Jalas? es tu oportunidad de conocer más gente de la uni!");
-                    ShowChoices("WOW, Claro! me encantaría ir!", "¿cómo crees? ni los conozco, yo que voy a hacer ahí?");
+                    ShowChoices("WOW, Claro! me encantaría ir!", "¿cómo crees? ni los conozco, yo que voy a hacer ahí");
                     
                 }
                 else if (chatID == 4)
@@ -318,6 +344,10 @@ public class Chat1Valentina : MonoBehaviour
                 else if (chatID == 7)
                 {
                     ShowMessage(GameData.playerName, "¿Peculiar?");
+                }
+                else if (chatID == 8)
+                {
+                    ShowMessage("Ángela", "Veo que pasas mucho tiempo con ellas, y te veo un poquito cambiada en tus fotos, o ¿cómo te sientes tú?");
                 }
                 else
                 ShowMessage(contactNameText.text, "Texto4");
@@ -342,7 +372,7 @@ public class Chat1Valentina : MonoBehaviour
                 }
                 else if (chatID == 4)
                 {
-                    ShowMessage("Sistema", "Fin del chat");
+                    ShowMessage("Sistema", "Fin del chat, puedes regresar con la flecha ubicada en la parte superior");
                     EndChatWithoutAction();
 
 
@@ -350,18 +380,26 @@ public class Chat1Valentina : MonoBehaviour
 
                 else if (chatID == 5)
                 {
-                    ShowMessage("Natalia", "Tienes que seguir el paso si quieres siquiera figurar. Tienes potencial de influencer nena. Te puedo dar unos brand deals que te ayudarían mucho. Pero necesito que subas más cosas. ¿Jalas?");
+                    ShowMessage("Natalia", "Tienes que seguir el paso si quieres siquiera figurar. Tienes potencial de influencer nena. Te puedo dar unos brand deals que te ayudarían mucho. Pero necesito que subas más cosas. ¿Entras?");
                     ShowChoices("Wow, me encantaría! ¿Qué recomiendas?", "Eh, creo que no es lo mío, pero gracias por decirme.");
                 }
                 else if (chatID == 6)
                 {
-                    ShowMessage("Paula", "Ew. Ni te emociones. Bueno, pues yo soy la fotografa personal de la bella Nat. Aparte de ser su bestie, of course. Anyway, te quiero ayudar a tomarte mejores fotos y a encontrar tu escencia para que subas cosas a redes que llamen la atención, te late?");
+                    ShowMessage("Paula", "Ew. Ni te emociones. Bueno, pues yo soy la fotografa personal de Nat. Te voy a ayudar a tomarte mejores pics para que subas cosas que llamen la atención, te late?");
                     ShowChoices("Wow! de verdad? Claro, me encantaría!", "Ehh… Crees??");
                 }
                 else if (chatID == 7)
                 {
-                    ShowMessage("Aaron", "Totalmente. Tienes cara de florecita y actitud de bebita enojona. Me encantó coincidir contigo, traes todo el flow y a la gente le encantó vernos juntos.");
+                    ShowMessage("Aarón", "Totalmente. Tienes cara de florecita y actitud de bebita enojona. Me encantó coincidir contigo, traes todo el flow y a la gente le encantó vernos juntos.");
                 }
+
+                else if (chatID == 8)
+                {
+                    ShowMessage(GameData.playerName, "");
+                    ShowInput();
+                }
+
+               
                 break;
 
 
@@ -381,7 +419,7 @@ public class Chat1Valentina : MonoBehaviour
                 }
                 else if (chatID == 2)
                 {
-                    ShowMessage("Sistema", "Fin del chat");
+                    ShowMessage("Sistema", "Fin del chat, puedes regresar con la flecha ubicada en la parte superior");
                     EndChatWithoutAction();
 
                 }
@@ -404,9 +442,13 @@ public class Chat1Valentina : MonoBehaviour
                 }
                 else if (chatID == 7)
                 {
-                    ShowMessage("Aaron", "Además, ese post? no puedo rajarme sin antes darte una oportunidad, chica…");
+                    ShowMessage("Aarón", "Además, ese post? no puedo rajarme sin antes darte una oportunidad, chica…");
                 }
-                
+                else if (chatID == 8)
+                {
+                    ShowMessage("Ángela", "Vaya, no me lo esperaba, te pregunto porque me importas muchísimo y quiero verte feliz con amistades que te ofrezcan lo mismo que das");
+                }
+
 
                 break;
 
@@ -416,21 +458,26 @@ public class Chat1Valentina : MonoBehaviour
 
                 if (chatID == 5)
                 {
-                    ShowMessage("Sistema", "Fin del chat");
+                    ShowMessage("Sistema", "Fin del chat, puedes regresar con la flecha ubicada en la parte superior");
                     EndChatWithoutAction();
 
                 }
 
                 else if (chatID == 6)
                 {
-                    ShowMessage("Paula", "Mira, te mando inspo pics de fotos y poses que sé que gustarán bastante. Te gustaría más atrevida o cute?");
+                    ShowMessage("Paula", "Mira, te mando inspo pics de fotos y poses que sé que gustarán bastante. ¿Te gustaría más atrevida o cute?");
 
                 }
                 else if (chatID == 7)
                 {
-                    ShowMessage("Aaron", "¿Te gustaría salir por un café? Sería la oportunidad perfecta para, ya sabes, conocernos y ser amigos lejos de Nat y Pau.");
+                    ShowMessage("Aarón", "¿Te gustaría salir por un café? Sería la oportunidad perfecta para, ya sabes, conocernos y ser amigos...");
                     ShowChoices("Creo que no es mala idea.", "Lo siento AP, no creo poder.");
                 }
+                else if (chatID == 8)
+                {
+                    ShowMessage("Ángela", "Entonces, ¿salimos?");
+                }
+               
 
 
 
@@ -450,6 +497,11 @@ public class Chat1Valentina : MonoBehaviour
                 else if (chatID == 7)
                 {
                     ResponseAfterChoice();
+                    ShowYellowButton();
+                }
+                else if (chatID == 8)
+                {
+                    ShowMessage(GameData.playerName, "Si, claro, ¿dónde te veo?...");
                     ShowYellowButton();
                 }
 
@@ -499,7 +551,7 @@ public class Chat1Valentina : MonoBehaviour
         if (speaker == "Valentina")
             npcImage.sprite = valentinaSprite;
 
-        else if (speaker == "Aaron")
+        else if (speaker == "Aarón")
             npcImage.sprite = aaronSprite;
 
         else if (speaker == "Ángela")
@@ -523,7 +575,11 @@ public class Chat1Valentina : MonoBehaviour
         nextButton.SetActive(true);
         yellowButton.SetActive(false);
     }
+
     
+
+    
+
 
     void ShowChoices(string op1, string op2)
     {
@@ -541,7 +597,7 @@ public class Chat1Valentina : MonoBehaviour
     }
 
 
-    void Choose(int option)
+    public void Choose(int option)
     {
         lastChoice = option;
 
@@ -567,11 +623,11 @@ public class Chat1Valentina : MonoBehaviour
         {
             if (lastChoice == 1)
             {
-                ShowMessage("Valentina", "¿Pero de que hablas nena? No TENIAS, por que te vamos a hacer uno!");
+                ShowMessage("Valentina", "¿Pero de qué hablas nena? No tenías, por que te vamos a hacer uno ahora mismo!");
             }
             else
             {
-                ShowMessage("Valentina", "¿Pero de que hablas nena? No TENIAS, por que te vamos a hacer uno!");
+                ShowMessage("Valentina", "¿Pero de qué hablas nena? No tenías, por que te vamos a hacer uno ahora mismo!");
             }
         }
 
@@ -582,7 +638,7 @@ public class Chat1Valentina : MonoBehaviour
         {
             if (lastChoice == 1)
             {
-                ShowMessage("Ángela", "Obvio, mereces todos los likes del mundo bella! Aparte te veias re linda!");
+                ShowMessage("Ángela", "Obvio, mereces todos los likes del mundo bella! Aparte te veías re linda!");
             }
             else
             {
@@ -598,7 +654,7 @@ public class Chat1Valentina : MonoBehaviour
             }
             else
             {
-                ShowMessage("Valentina", "No te preocupes chica, es normal! Pero la gente se va a fijar más en tu belleza y tu cuerpo. Hay que sacar esos gains! Estoy segura que los de la uni segura ya quieren conocerte!");
+                ShowMessage("Valentina", "No te preocupes chica, es normal! Pero la gente se va a fijar más en tu belleza y tu cuerpo. Hay que sacar esos gains!");
             }
         }
 
@@ -611,7 +667,7 @@ public class Chat1Valentina : MonoBehaviour
             }
             else
             {
-                ShowMessage("Valentina", "Tu te lo pierdes amiga, me preocupo por ti y no se si podrias hacer amigos por ti misma, nos vemos despues y espero no me rechaces!");
+                ShowMessage("Valentina", "Tú te lo pierdes amiga, me preocupo por ti y no se si podrias hacer amigos por ti misma, nos vemos después y espero no me rechaces!");
             }
         }
         //angela reflexion 
@@ -619,11 +675,11 @@ public class Chat1Valentina : MonoBehaviour
         {
             if (lastChoice == 1)
             {
-                ShowMessage("Ángela", "Cuéntame, ¿como te sientes? ¿lo repetirías? ¿como te sientes contigo? Cuentame todo!");
+                ShowMessage("Ángela", "Cuéntame, ¿cómo te sientes? ¿lo repetirías? ¿cómo te sientes contigo? Cuéntame todo!");
             }
             else
             {
-                ShowMessage("Ángela", "Cuéntame, ¿como te sientes? ¿lo repetirías? ¿como te sientes contigo? Cuentame todo!");
+                ShowMessage("Ángela", "Cuéntame, ¿cómo te sientes? ¿lo repetirías? ¿cómo te sientes contigo? Cuéntame todo!");
             }
         }
         //natalia
@@ -658,11 +714,23 @@ public class Chat1Valentina : MonoBehaviour
         {
             if (lastChoice == 1)
             {
-                ShowMessage("Aaron", "Genial,te llevaré al mejor café de la ciudad. Te veo entonces nena.");
+                ShowMessage("Aarón", "Genial,te llevaré al mejor café de la ciudad. Te veo entonces nena.");
             }
             else
             {
-                ShowMessage("Aaron", "Desde la fiesta juegas a la dificil. No importa. Iré por tí para que salgamos.");
+                ShowMessage("Aarón", "Desde la fiesta juegas a la dificil. No importa. Iré por tí para que salgamos.");
+            }
+        }
+        //Angela evento rapido
+        else if (chatID == 8)
+        {
+            if (lastChoice == 1)
+            {
+                ShowMessage("Ángela", "Si amiga, ntp, entiendo que debes hacer muchos amigos y estoy muy feliz, neta, solo que...");
+            }
+            else
+            {
+                ShowMessage("Ángela", "¡Que feliz me hace que nos podamos ver! Igual no te quitaría mucho tiempo, solo que...");
             }
         }
     }
@@ -672,9 +740,9 @@ public class Chat1Valentina : MonoBehaviour
         nextButton.SetActive(true);
     }
 
-    
 
-    
+
+
 
     void ModifyStats(int validación, int vínculos, int autopercepción)
     {
@@ -689,6 +757,12 @@ public class Chat1Valentina : MonoBehaviour
         GameData.Save();
 
         ShowStatsPopup(validación, vínculos, autopercepción);
+
+        var ui = FindFirstObjectByType<MetricsManagerUI>();
+        if (ui != null)
+        {
+            ui.UpdateMetrics();
+        }
     }
 
     
@@ -733,7 +807,7 @@ public class Chat1Valentina : MonoBehaviour
         {
 
             case 1:
-                yellowButtonText.text = "Has decidido abrir ORION. Decide que tipo de foto quieres y cómo deseas editarla, presionando este botón.";
+                yellowButtonText.text = "Has decidido abrir Orion. Decide que tipo de foto quieres y cómo deseas editarla, presionando este botón.";
                 break;
 
             case 3:
@@ -745,7 +819,11 @@ public class Chat1Valentina : MonoBehaviour
                 break;
 
             case 7:
-                yellowButtonText.text = "Has decidido aceptar la invitación de Aaron. Alístate y prepárate para encontrarte con él. ¿Quién sabe que sopresa podrás llevarte?";
+                yellowButtonText.text = "Has decidido aceptar la invitación de Aarón. Alístate y prepárate para encontrarte con él. ¿Quién sabe que sopresa podrás llevarte?";
+                break;
+
+            case 8:
+                yellowButtonText.text = "Ángela te invita a platicar en su casa, con mucho gusto te diriges hacia ella.";
                 break;
 
             default:
@@ -801,6 +879,7 @@ public class Chat1Valentina : MonoBehaviour
 
         PlayerPrefs.SetInt("FromChat", 1);
         PlayerPrefs.SetInt("PostState", 0);
+        PlayerPrefs.SetInt("ComingFromYellow", 1);
 
         SceneManager.LoadScene("Publicaciones");
     }
@@ -900,25 +979,27 @@ public class Chat1Valentina : MonoBehaviour
     void ShowMultiplePopups(int validacion, int vinculos, int autopercepcion)
     {
         if (validacion != 0)
-            CreatePopup("Validación " + (validacion > 0 ? "+" : "") + validacion, 0);
+            CreatePopup(validacion, iconValidacion, 0);
 
         if (vinculos != 0)
-            CreatePopup("Vínculos " + (vinculos > 0 ? "+" : "") + vinculos, 1);
+            CreatePopup(vinculos, iconVinculos, 1);
 
         if (autopercepcion != 0)
-            CreatePopup("Autopercepción " + (autopercepcion > 0 ? "+" : "") + autopercepcion, 2);
+            CreatePopup(autopercepcion, iconAuto, 2);
     }
 
-    void CreatePopup(string text, int index)
+    void CreatePopup(int value, Sprite icon, int index)
     {
-
-   
         GameObject popup = Instantiate(popupPrefab, popupContainer);
 
+       
         TMP_Text txt = popup.GetComponentInChildren<TMP_Text>();
-        txt.text = text;
+        txt.text = (value > 0 ? "+" : "") + value;
 
-        
+    
+        Image iconImg = popup.transform.Find("Icon").GetComponent<Image>();
+        iconImg.sprite = icon;
+
         popup.transform.localPosition += new Vector3(0, -40 * index, 0);
 
         CanvasGroup cg = popup.GetComponent<CanvasGroup>();
@@ -926,22 +1007,53 @@ public class Chat1Valentina : MonoBehaviour
         StartCoroutine(AnimatePopup(popup.transform, cg));
     }
 
-   
+
 
     IEnumerator AnimatePopup(Transform popup, CanvasGroup cg)
     {
-        float duration = 4f;
+        float fadeInTime = 0.3f;
+        float visibleTime = 3f; 
+        float fadeOutTime = 0.8f;
+
+        float floatDistance = 30f;
         float timer = 0f;
 
         Vector3 startPos = popup.localPosition;
 
-        while (timer < duration)
+   
+        while (timer < fadeInTime)
+        {
+            timer += Time.deltaTime;
+            cg.alpha = timer / fadeInTime;
+
+            popup.localPosition = startPos + new Vector3(0, (timer / fadeInTime) * floatDistance, 0);
+
+            yield return null;
+        }
+
+      
+        cg.alpha = 1;
+        float visibleTimer = 0f;
+
+        while (visibleTimer < visibleTime)
+        {
+            visibleTimer += Time.deltaTime;
+
+    
+            popup.localPosition += new Vector3(0, Time.deltaTime * 5f, 0);
+
+            yield return null;
+        }
+
+        timer = 0f;
+
+        while (timer < fadeOutTime)
         {
             timer += Time.deltaTime;
 
-            popup.localPosition = startPos + new Vector3(0, timer * 30f, 0);
+            cg.alpha = 1 - (timer / fadeOutTime);
 
-            cg.alpha = 1 - (timer / duration);
+            popup.localPosition += new Vector3(0, Time.deltaTime * 10f, 0);
 
             yield return null;
         }
